@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-start">Name</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for owns in owned %}
+                <tr>
+                    <td class="text-start">{{ owns.symbol }}</td>
+                    <td class="text-start">{{ owns.name }}</td>
+                    <td class="text-end">{{ owns.shares }}</td>
+                    <td class="text-end">{{ owns.price | usd }}</td>
+                    <td class="text-end">{{ (owns.price * owns.shares)| usd }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                <td class="border-0 text-end">{{ cash1 | usd }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+                <td class="border-0 w-bold text-end">{{ total1 | usd }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

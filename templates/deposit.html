@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Deposit
+{% endblock %}
+
+{% block main %}
+    <form action="/deposit" method="post">
+        <div class="mb-3">
+            <h5>Enter Credit Card Number:</h5>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="creditNumber" placeholder="Credit Card Number" type="text">
+        </div>
+        <h5>Enter Expirary Date:</h5>
+        <div class="row row-cols-lg-auto g-3 align-items-center" style="justify-content: center;">
+          <div class="col">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="month" placeholder="MM-" type="number" min="1" max="12">
+          </div>
+          <h5>/</h5>
+          <div class="col">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="year" placeholder="YY" type="number" min="23" max="99">
+          </div>
+        </div>
+        <br>
+        <div class="mb-3" >
+            <h5>Deposit Amount:</h5>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="amount" placeholder="Amount" type="text">
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+{% endblock %}
