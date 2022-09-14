@@ -378,3 +378,8 @@ def updateBalance(amount):
     cash = balance[0]["cash"]
     newBalance = cash + amount
     db.execute("UPDATE users SET cash = ? WHERE id = ?", newBalance, session["user_id"])
+
+
+if __name__=="__main__":
+    port = int(os.environ.get("PORT",8080))
+    app.run(hots="0.0.0.0", port=port)
